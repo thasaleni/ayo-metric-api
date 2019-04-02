@@ -24,6 +24,10 @@ You will also need https://docker.com[Docker], which only runs on 64-bit machine
 ----
 cd ayo-metric-api
 ----
+== edit application.properties to point to your postgressSQL host the docker image
+----
+spring.datasource.url=jdbc:postgresql://localhost:5432/mmiayo
+----
 == build the docker image
 
 Now you can build the application image.
