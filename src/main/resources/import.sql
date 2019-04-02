@@ -1,0 +1,1 @@
+INSERT INTO users (username, password, token) VALUES ('mmiayo', 'mmiayo1_', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1NSSBBeW8iLCJpYXQiOjE1MTYyMzkwMjJ9.twZUFnamQ2WDcKbLzpk_aNSptiObzRIDB3wQVXUnqsI');

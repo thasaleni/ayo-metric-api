@@ -1,0 +1,59 @@
+:spring_version: current
+:toc:
+:project_id: gs-spring-boot-docker
+:icons: font
+:source-highlighter: prettify
+
+This guide walks you through the process of building a https://docker.com[Docker] image for running a Spring Boot application.
+
+== What you'll build
+
+This is a spring boot application that automatically starts up its own docker container.
+
+== What you'll need
+
+If you are NOT using a Linux machine, you will need a virtualized server. By installing VirtualBox, other tools like the Mac's boot2docker, can seamlessly manage it for you. Visit https://www.virtualbox.org/wiki/Downloads[VirtualBox's download site] and pick the version for your machine. Download and install. Don't worry about actually running it.
+
+You will also need https://docker.com[Docker], which only runs on 64-bit machines. See https://docs.docker.com/installation/#installation for details on setting Docker up for your machine. Before proceeding further, verify you can run `docker` commands from the shell. If you are using boot2docker you need to run that *first*.
+
+[[initial]]
+== Checkout the project
+
+`git checkout https://github.com/thasaleni/ayo-metric-api.git`
+[source,java]
+----
+cd ayo-metric-api
+----
+== build the docker image
+
+Now you can build the application image.
+
+`$ ./mvnw install dockerfile:build`
+[source,java]
+----
+$ ./mvnw install dockerfile:build
+----
+
+== run the docker image
+
+Now you can run the application image.
+
+`docker run -p 8080:8080 -t mmiayo/ayo-metric-api`
+[source,java]
+----
+$ docker run -p 8080:8080 -t mmiayo/ayo-metric-api
+----
+
+== Summary
+
+Congratulations! You've just created a Docker container for a Spring Boot app! Spring Boot apps run on port 8080 inside the container by default and we mapped that to the same port on the host using "-p" on the command line.
+
+== See Also
+
+The following guides may also be helpful:
+
+* https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
+* https://spring.io/guides/topicals/spring-boot-docker[Topical Guide on Spring Boot with Docker] (more depth than this guide)
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]

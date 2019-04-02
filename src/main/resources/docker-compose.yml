@@ -1,0 +1,22 @@
+version: '2'
+services:
+  ayo-nginx:
+    build: ayo-ui/.
+    ports:
+      - "4100:4100"
+    depends_on:
+      - ayo-rest
+  ayo-rest:
+    build: ayo-rest/.
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ayo-db
+  ayo-db:
+    image: postgres:9.4.5
+    environment:
+      POSTGRES_USER: mmiayo
+      POSTGRES_PASSWORD: mmiayo123_
+      POSTGRES_DB: mmiayo
+    ports:
+      - "5432:5432" 
